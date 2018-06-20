@@ -32,13 +32,24 @@ class App extends Component {
   getTweets = (count)=>
   {
     axios.get('/tweets/'+this.props.PageCount).then(response=>{
-        this.props.storeTweets(response.data.tweets);        
-     }).catch(error=>console.log(error));
+         
+        if(response.data.statusCode === 200)   
+        {
+           this.props.storeTweets(response.data.tweets);   
+        }
+        else
+        {
+           window.Materialize.toast('Rate Limit Exceeded !', 4000);
+        }
+     }).catch(error=>{
+     
+      console.log(error)});
   }
 
   getMoretweets = ()=>
   {
-    this.updatePageCount();
+    this.props.updatePageCount();
+    console.log(this.props.PageCount)
     this.getTweets(this.props.PageCount);
   }
    
@@ -51,7 +62,7 @@ class App extends Component {
                   <Navigation IsLoggedIn={this.props.IsLoggedIn} Username = {this.props.Username} DisplayPic = {this.props.ProfilePic} />
                   <Row>
                   <Col s={3}>
-                   
+                   {this.props.PageCount}
                   </Col>
                    <Col s={6}>
                    <Route path="/"  exact render={()=> {return this.props.Tweets.map((tweet,index)=>{
@@ -92,7 +103,7 @@ const mapDispatchToProps = dispatcher => {
         setDP: (url)=>dispatcher({type:actionType.SET_DP,value:url}),
         setUsername: (name)=>dispatcher({type:actionType.SET_NAME,value:name}),
         setLogin: (val)=>dispatcher({type:actionType.SET_LOGIN,value:val}),
-        updatePageCount: (count)=>dispatcher({type:actionType.UPDATE_PAGE_COUNT,value:count}),
+        updatePageCount: ()=>dispatcher({type:actionType.UPDATE_PAGE_COUNT}),
   };
 };
 

@@ -11,6 +11,7 @@ const initialState = {
 const reducer =(state=initialState,action)=>{
 	switch (action.type) {
 		case actionType.STR_TWEETS:
+			console.log(action.value)
 			return updateState(state,{Posts:[...action.value]})
 
 		case actionType.SET_DP:
