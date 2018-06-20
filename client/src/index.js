@@ -7,12 +7,10 @@ import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import tlReducer from './store/reducers/timelineReducer';
 import tweetReducer from './store/reducers/singleTweetReducer';
-import countReducer from './store/reducers/countReducer';
 
 const rootReducer = combineReducers({
 	tlReduce:tlReducer,
-	tweetReduce:tweetReducer,
-	ctr:countReducer
+	tweetReduce:tweetReducer
 });
 const store = createStore(rootReducer);
 
