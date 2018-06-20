@@ -29,6 +29,7 @@ const reducer =(state=initialState,action)=>{
 
 		case actionType.UPDATE_PAGE_COUNT:
 			return updateState(state,{PageCount:state.PageCount+5});
+			
 
 		default:
 			return state;

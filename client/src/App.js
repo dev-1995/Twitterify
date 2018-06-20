@@ -23,7 +23,7 @@ class App extends Component {
       console.log(this.props,response);
       this.getTweets();
     })
-    .catch(error=>{ this.props.setLogin(true);console.log(error)});
+    .catch(error=>{ this.props.setLogin(false);console.log(error)});
    
   }
 
