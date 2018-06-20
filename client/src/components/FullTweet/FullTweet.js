@@ -21,7 +21,7 @@ class FullTweet extends Component{
 				this.props.setTwitHandle(tempObj.user.screen_name);
 				this.props.setProfileImg(tempObj.user.profile_image_url);
 				this.props.setLike(tempObj.favorited);
-				// this.props.setViewCount(tempObj.id_str);
+				this.props.setViewCount(tempObj.id_str);
 			}).catch(error=>console.log(error))
 		}
 	}
@@ -72,7 +72,7 @@ const mapStateToProps = state => {
         FullTweet:state.tweetReduce.FullTweet,
         ProfileImg:state.tweetReduce.ProfileImg,
         UserHandle:state.tweetReduce.UserHandle,
-        ViewCount:state.ctr.ViewCount
+        ViewCount:state.tlReduce.ViewCount
     };
 };
 

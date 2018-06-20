@@ -28,6 +28,15 @@ const reducer =(state=initialState,action)=>{
 			
 		case actionType.SET_PROF:
 			return updateState(state,{ProfileImg:action.value})
+		// case actionType.SET_VIEW_COUNT:
+		// 	console.log(state.ViewCount);
+		// 	let arr = [...state.ViewCount,action.value];
+		// 	console.log(arr);
+		// 	return {
+		// 		...state,
+		// 		ViewCount:arr
+
+		// 	}
 		default:
 			break;	 
 	}

@@ -3,7 +3,8 @@ const initialState = {
 	  IsLoggedIn:false,
     Posts : [],
     Username:'',
-    DisplayPic:''
+    DisplayPic:'',
+    Views:[]
 }
 const reducer =(state=initialState,action)=>{
 	switch (action.type) {
@@ -26,6 +27,13 @@ const reducer =(state=initialState,action)=>{
 			return {
 				...state,
 				IsLoggedIn:action.value
+			}
+		case actionType.SET_VIEW_COUNT:
+			var count = {[action.value]:1};
+			console.log(state.Views);
+			return {
+				...state,
+				Views:[...state.Views].concat(count)
 			}
 		default:
 			break;
