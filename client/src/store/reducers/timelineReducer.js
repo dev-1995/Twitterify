@@ -6,7 +6,6 @@ const initialState = {
     Posts : [],
     Username:'',
     DisplayPic:'',
-    Views:[],
     PageCount:5
 }
 const reducer =(state=initialState,action)=>{
@@ -22,13 +21,10 @@ const reducer =(state=initialState,action)=>{
 			
 		case actionType.SET_LOGIN:
 			return updateState(state,{IsLoggedIn:action.value})
-			
-		case actionType.SET_VIEW_COUNT:
-		console.log(action.value,state.Views);
-			return updateState(state,{Views:state.Views.concat(action.value)});
 
 		case actionType.UPDATE_PAGE_COUNT:
-			return updateState(state,{PageCount:state.PageCount+5});
+			const newState = {...state,PageCount:state.PageCount+5}
+			return newState;
 			
 
 		default:

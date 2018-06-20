@@ -11,7 +11,7 @@ class FullTweet extends Component{
 		
 		if(this.props.match.params.id)
 		{
-			console.log(this.props);
+		
 			axios.get('/tweet/'+this.props.match.params.id).then(response=>{
 				const tempObj = {...response.data.data};
 				
@@ -57,7 +57,7 @@ class FullTweet extends Component{
 	         	 <a  onClick={this.likeTweet} className="likeButton">
 	             <span className="entypo-heart"></span>LIKE
 	             </a>}
-	             <span className="viewCount">{1} Views</span>
+	             <span className="viewCount">{this.props.Views[this.props.TweetId]} Views</span>
 	            </div>
         </CardPanel>
 			)
@@ -72,7 +72,7 @@ const mapStateToProps = state => {
         FullTweet:state.tweetReduce.FullTweet,
         ProfileImg:state.tweetReduce.ProfileImg,
         UserHandle:state.tweetReduce.UserHandle,
-        Views:state.tlReduce.Views
+        Views:state.tweetReduce.Views
     };
 };
 

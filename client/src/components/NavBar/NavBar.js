@@ -1,10 +1,10 @@
 import React from 'react';
 import {NavItem,Navbar} from 'react-materialize';
-
+import {Link} from 'react-router-dom';
 
 const Navigation = (props) => 
 {
-	return ( <Navbar brand={<div className="brandLogo"><img alt="twitter" src={require("../../assets/twitter.png")} /><h4 >Twitterify</h4></div>} right>
+	return ( <Navbar brand={<Link to="/"><div className="brandLogo"><img alt="twitter" src={require("../../assets/twitter.png")} /><h4 >Twitterify</h4></div></Link>} right>
 
         {props.IsLoggedIn ? 
           <div>

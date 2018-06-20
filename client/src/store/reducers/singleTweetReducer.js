@@ -6,7 +6,8 @@ const initialState = {
     UserHandle:'',
     Liked:false,
     TweetId:'',
-    FullTweet:''
+    FullTweet:'',
+    Views:{}
 }
 const reducer =(state=initialState,action)=>{
 	switch (action.type) {
@@ -28,15 +29,19 @@ const reducer =(state=initialState,action)=>{
 			
 		case actionType.SET_PROF:
 			return updateState(state,{ProfileImg:action.value})
-		// case actionType.SET_VIEW_COUNT:
-		// 	console.log(state.ViewCount);
-		// 	let arr = [...state.ViewCount,action.value];
-		// 	console.log(arr);
-		// 	return {
-		// 		...state,
-		// 		ViewCount:arr
-
-		// 	}
+		case actionType.SET_VIEW_COUNT:
+			if(state.Views[action.value])
+			{
+				const obj  = {...state.Views}
+				obj[action.value] = obj[action.value] + 1;
+				return updateState(state,{Views:obj});
+			}
+			else
+			{
+				const obj  = {...state.Views}
+				obj[action.value] = 1;
+				return updateState(state,{Views:obj});
+			}
 		default:
 			break;	 
 	}

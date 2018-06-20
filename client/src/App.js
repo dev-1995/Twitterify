@@ -14,8 +14,9 @@ import * as actionType from './store/actions/action';
 
 class App extends Component {
  
-
+  
   componentDidMount() {
+    
     axios.get('/profile').then(response=>{
       this.props.setLogin(true);
       this.props.setUsername(response.data.data.name);
@@ -26,6 +27,7 @@ class App extends Component {
     .catch(error=>{ this.props.setLogin(false);console.log(error)});
    
   }
+
 
   getTweets = (count)=>
   {
@@ -48,7 +50,7 @@ class App extends Component {
                   <Navigation IsLoggedIn={this.props.IsLoggedIn} Username = {this.props.Username} DisplayPic = {this.props.ProfilePic} />
                   <Row>
                   <Col s={3}>
-                  
+                   
                   </Col>
                    <Col s={6}>
                    <Route path="/"  exact render={()=> {return this.props.Tweets.map((tweet,index)=>{
