@@ -62,7 +62,7 @@ class App extends Component {
                   <Navigation IsLoggedIn={this.props.IsLoggedIn} Username = {this.props.Username} DisplayPic = {this.props.ProfilePic} />
                   <Row>
                   <Col s={3}>
-                   {this.props.PageCount}
+                   
                   </Col>
                    <Col s={6}>
                    <Route path="/"  exact render={()=> {return this.props.Tweets.map((tweet,index)=>{
