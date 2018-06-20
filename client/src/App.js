@@ -21,7 +21,7 @@ class App extends Component {
       this.props.setLogin(true);
       this.props.setUsername(response.data.data.name);
       this.props.setDP(response.data.data.profile_image_url);
-      console.log(this.props,response);
+      
       this.getTweets();
     })
     .catch(error=>{ this.props.setLogin(false);console.log(error)});
@@ -38,7 +38,8 @@ class App extends Component {
 
   getMoretweets = ()=>
   {
-    this.props.updatePageCount();
+    this.updatePageCount();
+    this.getTweets(this.props.PageCount);
   }
    
    

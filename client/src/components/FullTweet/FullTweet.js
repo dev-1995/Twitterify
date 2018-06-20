@@ -25,7 +25,12 @@ class FullTweet extends Component{
 			}).catch(error=>console.log(error))
 		}
 	}
-	  
+	
+	componentWillReceiveProps(nextProps)
+	{
+
+		console.log(nextProps)
+	}
 	likeTweet = ()=>{
 		
 		axios.get('/like/'+this.props.TweetId).then(response=>{

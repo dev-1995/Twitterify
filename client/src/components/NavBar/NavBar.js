@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 const Navigation = (props) => 
 {
-	return ( <Navbar brand={<Link to="/"><div className="brandLogo"><img alt="twitter" src={require("../../assets/twitter.png")} /><h4 >Twitterify</h4></div></Link>} right>
+	return ( <Navbar brand={<Link to="/" className="brandLogo" componentclass="span"><img alt="twitter" src={require("../../assets/twitter.png")} /><h4 >Twitterify</h4></Link>} right>
 
         {props.IsLoggedIn ? 
           <div>
