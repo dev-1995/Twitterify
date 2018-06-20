@@ -12,8 +12,8 @@ var OAuth= require('oauth').OAuth;
 
 
 //  Variables 
-var cons_Key = '4wfEyja8E7VkrhSfBz3SllN9g';
-var cons_Secret = 'mVhMhCk2ylRdEnzaR048IQUUt9F0q7kjmbNXpiQ4PYX3GbcfE9';
+var cons_Key = 'd2bBmfSDx1yoKR92020nky40Z';
+var cons_Secret = 'jvvQPwsKsUJIw6gtRBhfVyOnDekd2Ri2IDSqtRvMWg6NHuGewr';
 var access_token = '';
 var access_secret = '';
 var Twitter ;

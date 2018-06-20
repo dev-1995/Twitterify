@@ -32,14 +32,14 @@ class App extends Component {
   getTweets = (count)=>
   {
     axios.get('/tweets/'+this.props.PageCount).then(response=>{
-         
-        if(response.data.statusCode === 200)   
+         console.log(response);
+        if(!response.data.err)   
         {
            this.props.storeTweets(response.data.tweets);   
         }
         else
         {
-           window.Materialize.toast('Rate Limit Exceeded !', 4000);
+           window.Materialize.toast(response.data.err.message, 4000);
         }
      }).catch(error=>{
      
