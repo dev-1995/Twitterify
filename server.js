@@ -12,8 +12,8 @@ var OAuth= require('oauth').OAuth;
 
 
 //  Variables 
-var cons_Key = 'mgmDw81CM1JLGsKFzjw980yvB';
-var cons_Secret = 'XwdkFLJxyivKHHejFcrQuLvNPQsXOeJpRCXbm2Ko0nJvBZu6ah';
+var cons_Key = '4wfEyja8E7VkrhSfBz3SllN9g';
+var cons_Secret = 'mVhMhCk2ylRdEnzaR048IQUUt9F0q7kjmbNXpiQ4PYX3GbcfE9';
 var access_token = '';
 var access_secret = '';
 var Twitter ;
@@ -94,8 +94,8 @@ app.get('/twitter/return', function(req, res, next){
 
 
 // Get First 5 tweets from timeline
-app.get('/tweets',function(req,res){
-	Twitter.get('statuses/home_timeline',{count:6,exclude_replies:true,include_entities	:false}, function(err, data, response) {
+app.get('/tweets/:count',function(req,res){
+	Twitter.get('statuses/home_timeline',{count:req.params.count,exclude_replies:true,include_entities	:false}, function(err, data, response) {
   		 res.setHeader('Content-Type', 'application/json');
     res.send({ 'tweets': data,'err':err });
 		})

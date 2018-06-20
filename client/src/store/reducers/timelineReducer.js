@@ -1,44 +1,39 @@
 import * as actionType from '../actions/action';
+import { updateState } from '../utility';
+
 const initialState = {
 	  IsLoggedIn:false,
     Posts : [],
     Username:'',
     DisplayPic:'',
-    Views:[]
+    Views:[],
+    PageCount:5
 }
 const reducer =(state=initialState,action)=>{
 	switch (action.type) {
 		case actionType.STR_TWEETS:
-			return {
-				...state,
-				Posts:state.Posts.concat(action.value)
-			}
+			return updateState(state,{Posts:[...action.value]})
+
 		case actionType.SET_DP:
-			return{
-				...state,
-				DisplayPic:action.value
-			}
+			return updateState(state,{DisplayPic:action.value})
+
 		case actionType.SET_NAME:
-			return {
-				...state,
-				Username:action.value
-			}
+			return updateState(state,{Username:action.value})
+			
 		case actionType.SET_LOGIN:
-			return {
-				...state,
-				IsLoggedIn:action.value
-			}
+			return updateState(state,{IsLoggedIn:action.value})
+			
 		case actionType.SET_VIEW_COUNT:
-			var count = {1:1};
-			console.log(state.Views);
-			return {
-				...state,
-				Views:[...state.Views].concat(count)
-			}
+		console.log(action.value,state.Views);
+			return updateState(state,{Views:state.Views.concat(action.value)});
+
+		case actionType.UPDATE_PAGE_COUNT:
+			return updateState(state,{PageCount:state.PageCount+5});
+
 		default:
-			break;
+			return state;
 	}
-	return state;
+	
 }
 
 export default reducer;

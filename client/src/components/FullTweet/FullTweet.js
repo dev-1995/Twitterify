@@ -72,7 +72,7 @@ const mapStateToProps = state => {
         FullTweet:state.tweetReduce.FullTweet,
         ProfileImg:state.tweetReduce.ProfileImg,
         UserHandle:state.tweetReduce.UserHandle,
-        ViewCount:state.tlReduce.Views
+        Views:state.tlReduce.Views
     };
 };
 
