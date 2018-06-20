@@ -29,7 +29,7 @@ const reducer =(state=initialState,action)=>{
 				IsLoggedIn:action.value
 			}
 		case actionType.SET_VIEW_COUNT:
-			var count = {1:1};
+			var count = {[action.value]:1};
 			console.log(state.Views);
 			return {
 				...state,
